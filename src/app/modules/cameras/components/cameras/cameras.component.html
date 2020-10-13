@@ -1,0 +1,26 @@
+<div class="container" *ngIf="(cameras$ | async) as cameras;">
+  <div class="count"><h1>{{'CAMERAS.COUNT' | translate}}: {{ cameras.count }}</h1></div>
+  <mat-grid-list #grid [cols]="cols" rowHeight="1:1">
+    <mat-grid-tile *ngFor="let camera of cameras.cameras; let i = index">
+      <mat-card class="camera-card">
+        <mat-card-header fxLayout="row"
+                         fxLayout.xs="column"
+                         fxFlexFill
+                         fxLayoutAlign="center center">
+          <mat-card-title>{{'CAMERAS.CAMERA' | translate}} {{i + 1}}</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+          <img [src]="camera.url">
+        </mat-card-content>
+        <mat-card-footer>
+          <div *ngIf="camera.indicator" class="led-green"></div>
+          <div *ngIf="!camera.indicator" class="led-red"></div>
+          <div *ngIf="camera.indicator" class="indicator-text">{{'CAMERAS.PASS' | translate}}</div>
+          <div *ngIf="!camera.indicator" class="indicator-text">{{'CAMERAS.FAIL' | translate}}</div>
+        </mat-card-footer>
+      </mat-card>
+
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

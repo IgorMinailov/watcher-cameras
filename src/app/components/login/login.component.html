@@ -1,0 +1,23 @@
+<mat-card  fxLayout="row"
+           fxLayout.xs="column"
+           fxFlexFill
+           fxLayoutAlign="center center">
+  <form [formGroup] = "loginForm" (ngSubmit)="onSubmit()"
+        fxFlex.lg="50" fxFlex.md="70" fxFlex.sm="80">
+    <div class="container" >
+      <mat-form-field>
+        <input matInput placeholder="{{ 'LOGIN.USERNAME' | translate }}" formControlName = "username">
+        <mat-hint *ngIf="loginForm.controls.username.errors">{{ 'LOGIN.USERNAME.REQUIRED' | translate }}</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="{{ 'LOGIN.PASSWORD' | translate }}" type="password" formControlName = "password">
+        <mat-hint *ngIf="loginForm.controls.password.errors">{{ 'LOGIN.PASSWORD.REQUIRED' | translate }}</mat-hint>
+      </mat-form-field>
+
+      <button mat-flat-button color="primary" type="submit" [disabled]="!loginForm.valid">{{ 'LOGIN.LOGIN' | translate }}</button>
+    </div>
+  </form>
+</mat-card>
+
+

@@ -1,0 +1,27 @@
+{
+  "HEADER": {
+    "NAV": {
+      "CAMERAS": "Cameras",
+      "REPORTING": "Reporting",
+      "SETTINGS": "Settings"
+    },
+    "THEME": {
+      "LIGHT": "Light Theme",
+      "DARK": "Dark Theme"
+    },
+    "LOGOUT": "Logout"
+  },
+  "LOGIN": {
+    "LOGIN": "Login",
+    "USERNAME": "Username",
+    "PASSWORD": "Password",
+    "USERNAME.REQUIRED": "Username is required",
+    "PASSWORD.REQUIRED": "Password is required"
+  },
+  "CAMERAS": {
+    "CAMERA": "Camera",
+    "COUNT": "Count",
+    "PASS": "Pass",
+    "FAIL": "Fail"
+  }
+}

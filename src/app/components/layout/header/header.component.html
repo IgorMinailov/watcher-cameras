@@ -1,0 +1,61 @@
+<mat-toolbar color="primary" *ngIf="user">
+  <mat-toolbar-row>
+    <img class="logo" src="../../../../assets/logo.png">
+    <span class="menu-spacer"></span>
+    <div fxShow="true" fxHide.lt-md>
+      <a href="#" [routerLink]="['cameras']" routerLinkActive="active-link" mat-button>{{'HEADER.NAV.CAMERAS' | translate}}</a>
+      <a href="#" [routerLink]="['reporting']" routerLinkActive="active-link" mat-button>{{'HEADER.NAV.REPORTING' | translate}}</a>
+      <a href="#" [routerLink]="['settings']" routerLinkActive="active-link" mat-button>{{'HEADER.NAV.SETTINGS' | translate}}</a>
+    </div>
+    <span class="menu-spacer"></span>
+
+    <button mat-button [matMenuTriggerFor]="menuLanguage">{{translate.currentLang}}</button>
+
+    <mat-menu #menuLanguage="matMenu">
+      <button mat-menu-item (click)="changeLanguage('en')">
+        <span>en</span>
+      </button>
+      <button mat-menu-item (click)="changeLanguage('ge')">
+        <span>ge</span>
+      </button>
+    </mat-menu>
+
+    <button mat-icon-button [matMenuTriggerFor]="menuColor" class="btn-change-color">
+      <mat-icon>format_color_fill</mat-icon>
+    </button>
+
+    <mat-menu #menuColor="matMenu">
+      <button mat-menu-item (click)="changeTheme('light')">
+        <span>{{'HEADER.THEME.LIGHT' | translate}}</span>
+      </button>
+      <button mat-menu-item (click)="changeTheme('dark')">
+        <span>{{'HEADER.THEME.DARK' | translate}}</span>
+      </button>
+    </mat-menu>
+
+    <div class="user-name">
+      {{ user.name }}
+    </div>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu" fxShow="true" fxHide.gt-sm>
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="navigateTo('cameras')">
+        <span>{{'HEADER.NAV.CAMERAS' | translate}}</span>
+      </button>
+      <button mat-menu-item (click)="navigateTo('reporting')">
+        <span>{{'HEADER.NAV.REPORTING' | translate}}</span>
+      </button>
+      <button mat-menu-item (click)="navigateTo('settings')">
+        <span>{{'HEADER.NAV.SETTINGS' | translate}}</span>
+      </button>
+      <button mat-menu-item (click)="logout()">
+        <span>{{'HEADER.LOGOUT' | translate}}</span>
+      </button>
+    </mat-menu>
+
+    <button class="btn" mat-flat-button fxShow="true" fxHide.lt-md (click)="logout()">{{ 'HEADER.LOGOUT' | translate }}</button>
+  </mat-toolbar-row>
+</mat-toolbar>
